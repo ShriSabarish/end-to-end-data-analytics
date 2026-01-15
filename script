@@ -1,4 +1,3 @@
-
 /* 
 ========================================================================================================
 Customer Report 
@@ -28,9 +27,9 @@ use DataWarehouseAnalytics;
 select * from gold.fact_sales;
 select * from gold.dim_customers;
 --------------------------------------------------------------------------------------------------------*/
-CREATE VIEW gold.report_customers
-WITH base_query as(
-SELECT
+CREATE VIEW gold.report_customers AS
+WITH base_query AS (
+    SELECT
 	f.order_number,
 	f.product_key,
 	f.order_date,
@@ -86,7 +85,7 @@ WHEN lifespan >= 12 and total_sales <= 5000 THEN 'Regular'
 ELSE 'New'
 END as Customer_segment,
 last_order_date,
-DATEDIFF(month,last_order_date, GETDATE()),
+DATEDIFF(month,last_order_date, GETDATE()) as month_since_last_ordered,
 total_orders,
 total_sales,
 total_quantity,
@@ -105,6 +104,3 @@ ELSE total_sales / lifespan
 END as avg_monthly_spend
 FROM
 customer_aggregation;
-
-
-	
