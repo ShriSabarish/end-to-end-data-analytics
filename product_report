@@ -1,0 +1,22 @@
+/* 
+================================================================================================================
+Product Report
+================================================================================================================
+Purpose:
+  - This product consolidates key product materials and behaviours
+
+  Highlights:
+   1. Gather essential name such as product_name,category,subcategory, and cost.
+   2. Segment products by revenue to identify high-performer , mid-range, or Low-performer
+   3.Aggregate product level metrics
+     -total orders
+     -total sales
+     -total quantity sold
+     -total customer(unique)
+     -lifespan(in months)
+    4. calculate valuable KPI :
+      -recency
+      - average order value
+      -average monthly revenue 
+    ================================================================================================================
+*/
