@@ -28,7 +28,8 @@ use DataWarehouseAnalytics;
     1) Retrieve core columns from dim products and fact tables
 --------------------------------------------------------------------------------------------------------------------------
 */
-CREATE VIEW gold.fact_product as
+--DROP VIEW gold.product_report;--
+CREATE VIEW gold.product_report as
 WITH base_query as(
 SELECT
     f.order_number,
@@ -93,7 +94,7 @@ SELECT
 -- Average Order Revenue -- AOR
     CASE
     WHEN total_orders = 0 THEN 0
-    ELSE total_orders / total_sales
+    ELSE total_sales / total_orders
     END as avg_order_revenue,
 --- Average Monthly Revenue -- 
     CASE
@@ -101,3 +102,4 @@ SELECT
     ELSE total_sales / lifespan
     END as avg_monthly_revenue
 FROM product_aggregations;
+select * from gold.product_report;
